@@ -20,7 +20,7 @@ namespace ConsoleApp4.Domain
         {
             Console.WriteLine("1. List of users");
             
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("2. Exit");
          
             var recChoice = Console.ReadKey().Key;
             Dictionary<string, Users> users = new Dictionary<string, Users>();
@@ -47,16 +47,8 @@ namespace ConsoleApp4.Domain
 
                     
                 case ConsoleKey.D2:
-                        //ReceptionistMeny printList = new ReceptionistMeny(users);
-                        //printList.ReceptView();
-                   
-
-                    break;
-
-                    
-                case ConsoleKey.D3:
-                        
-                        Environment.Exit(0);
+                                            
+                       Environment.Exit(0);
                         break;
                     
 
