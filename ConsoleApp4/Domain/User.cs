@@ -4,20 +4,17 @@ using System.Text;
 
 namespace ConsoleApp4.Domain
 {
-   public  class   Users
-    {
+   public class User
+    { 
         public string Username { get; set; }
         public string Password { get; set; }
         public string Status { get; set; }
 
-        public  Users(string username, string password, string status)
-        {
+        public  User(string username, string password, string status)
+        {            
             Username = username;
             Password = password;
             Status = status;
-            
         }
-
-       
     }
 }

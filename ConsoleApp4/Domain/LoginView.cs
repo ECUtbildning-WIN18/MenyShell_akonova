@@ -7,16 +7,16 @@ namespace ConsoleApp4.Domain
 {
     class LoginView
     {
-        private readonly IDictionary<string, Users> _usersDictionary;
+        private readonly IDictionary<string, User> _usersDictionary;
 
         bool notloggin = true;
-        Users user = null;
-        public LoginView(IDictionary<string, Users> usersDictionary)
+        User user = null;
+        public LoginView(IDictionary<string, User> usersDictionary)
         {
             _usersDictionary = usersDictionary;
         }
 
-        public Users Display()
+        public User Display()
         {
             do
             {
@@ -37,7 +37,7 @@ namespace ConsoleApp4.Domain
                     {
 
                         user = _usersDictionary[username];
-                        Thread.Sleep(2000);
+                        //Thread.Sleep(2000);
                         notloggin = false;
                     }
                     else

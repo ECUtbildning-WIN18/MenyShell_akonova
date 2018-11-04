@@ -4,44 +4,52 @@ using System.Text;
 
 namespace ConsoleApp4.Domain
 {
-    class AddUsersView
+
+   class AddUsersView
     {
-       Users users = null; 
+       
+        private readonly IDictionary<string, User> _usersDictionary;
 
-        bool bollanswer = false;
-        public void AddUser()
+
+        public AddUsersView(IDictionary<string, User> users)
         {
-            while (bollanswer != true)
-            {
-                Console.Write("Username: ");
-                string username = Console.ReadLine();
-
-                Console.Write("Password: ");
-                string password = Console.ReadLine();
-
-                Console.WriteLine("Status: ");
-                string status = Console.ReadLine();
-
-                if (status == "admin" || status == "recept")
-                {
-                    Program.userDictionary.Add(username, new Users(username, password, status)); 
-                    foreach (KeyValuePair<string, Users> userDictionaryKeyValuePair in Program.userDictionary)
-                    {
-
-                        Users userdict = userDictionaryKeyValuePair.Value;
-
-                        Console.WriteLine("UserName: {0},  User password:  {1},  User status:{2}   ",  userdict.Username, userdict.Password, userdict.Status);
-                    }
-                    bollanswer = true; break;
-                }
-
-
-                else
-                {
-                    Console.WriteLine("Try again.");
-                    bollanswer = false;
-                }
-            }
+            _usersDictionary = users;
         }
+
+        public   void AddUser()
+    {
+        Console.WriteLine("  Username: ");
+        string username = Console.ReadLine();
+
+        Console.WriteLine(" \n Password: ");
+        string password = Console.ReadLine();
+
+        Console.WriteLine(" \n Status: ");
+        string status = Console.ReadLine();
+
+        if (status == "admin" || status == "recept")
+        {
+              
+
+                _usersDictionary.Add(username, new User(username, username, status));
+                foreach (KeyValuePair<string, User> userDictionaryKeyValuePair in Program.userDictionary)
+                {
+
+                    User userdict = userDictionaryKeyValuePair.Value;
+
+                    Console.WriteLine("UserName: {0},  User password:  {1},  User status:{2}   ", userdict.Username, userdict.Password, userdict.Status);
+               }
+
+
+            }
+
+
+        else
+        {
+            Console.WriteLine("Try again.");
+
+        }
+
     }
-}
+    }
+    }
